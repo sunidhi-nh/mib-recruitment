@@ -1,0 +1,666 @@
+/* ==========================================================================
+   KLE TECH CAMPUS CONNECT - APP STYLES & LAYOUT CONCEPT
+   ==========================================================================
+   LAYOUT CONCEPT: "KLE Tech Fest Dispatch & Poster Board"
+   Energy inspired by college campus fests (pleiades.kletech.ac.in feel without
+   copying layout or colors). Built with oversized condensed typography, pure
+   CSS scrolling marquee strips, full-width club poster panels, a day-wise
+   vertical timeline, and a strict 8/16/24/48px spacing scale.
+
+   COLOR PALETTE (Hex Codes):
+   - Cream Paper   (#F5F2EB) : Tactile off-white background.
+   - Ink Navy      (#0B1320) : Heavy text & 3px structural borders.
+   - Quad Red      (#C82323) : Primary action accent color.
+   - Muted Divider (#D8D3C5) : Border rule accents.
+   
+   THE 6 CLUB ACCENT COLORS:
+   1. Music Club     : #E05A47 (Vibrant Coral Red)
+   2. Drama Club     : #D97706 (Amber Orange)
+   3. Make In BVB    : #059669 (Tech Emerald Green)
+   4. Aerokle        : #2563EB (Sky Cobalt Blue)
+   5. Wordsworth     : #7C3AED (Literary Violet)
+   6. KLE Motorsports: #DC2626 (Racing Red)
+
+   TYPOGRAPHY PAIRING:
+   - Bebas Neue       : Heavy, condensed display font for giant headlines & poster titles.
+   - Plus Jakarta Sans: Clean, highly legible sans-serif for body text & UI controls.
+
+   SPACING SCALE (Strict 8-pt Scale):
+   - 8px  (--space-8)
+   - 16px (--space-16)
+   - 24px (--space-24)
+   - 48px (--space-48)
+   ========================================================================== */
+
+/* Main Application Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-24) var(--space-16);
+}
+
+/* Header & Navigation */
+.navbar {
+  background-color: var(--color-navy);
+  border-bottom: 3px solid var(--color-navy);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.75rem var(--space-16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.brand-badge {
+  background-color: var(--color-red);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  padding: 2px 8px;
+  border: 2px solid #ffffff;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+}
+
+.brand-sub {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-red);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+}
+
+/* ACTIVE NAV LINK RED UNDERLINE ANIMATION (GROWS FROM LEFT 200ms) */
+.nav-item-link {
+  position: relative;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: var(--space-8) var(--space-16);
+  color: #CBD5E1;
+  border: none;
+  transition: color 0.15s ease;
+}
+
+.nav-item-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+
+.nav-item-link.active::after,
+.nav-item-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-item-link:hover {
+  color: #ffffff;
+}
+
+.nav-item-link.active {
+  color: #ffffff;
+}
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.4rem;
+  color: #ffffff;
+  padding: 4px 10px;
+  border: 2px solid #ffffff;
+}
+
+/* ==========================================================================
+   HEADING SETTLE ANIMATION (250ms EASE-OUT)
+   ========================================================================== */
+.heading-settle {
+  animation: headingSettle 250ms ease-out forwards;
+}
+
+@keyframes headingSettle {
+  0% {
+    transform: translateY(12px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   PURE CSS MARQUEE LOOP STRIP (PAUSES ON HOVER)
+   ========================================================================== */
+.marquee-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--color-navy);
+  color: var(--bg-paper);
+  border-top: 3px solid var(--color-navy);
+  border-bottom: 3px solid var(--color-navy);
+  overflow: hidden;
+  user-select: none;
+  padding: var(--space-8) 0;
+}
+
+.marquee-container.accent-bg {
+  background-color: var(--color-red);
+  color: #ffffff;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+  padding-right: var(--space-24);
+}
+
+.marquee-item {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-16);
+  white-space: nowrap;
+}
+
+.marquee-star {
+  color: var(--color-red);
+  font-size: 1.2rem;
+}
+
+.marquee-container.accent-bg .marquee-star {
+  color: #ffffff;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   STAGGERED HERO ENTRANCE (ONE LOAD ANIMATION)
+   ========================================================================== */
+.hero-wrapper {
+  padding: var(--space-48) 0 var(--space-24);
+  border-bottom: var(--border-thick);
+  margin-bottom: var(--space-24);
+}
+
+.hero-tag {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  color: var(--color-red);
+  margin-bottom: var(--space-8);
+}
+
+.hero-title-container {
+  overflow: hidden;
+}
+
+.hero-word-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-word {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  line-height: 0.9;
+  color: var(--color-navy);
+  text-transform: uppercase;
+  display: inline-block;
+  transform: translateY(110%);
+  animation: heroSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered 80ms animation delay */
+.hero-word.w-0 { animation-delay: 0.00s; }
+.hero-word.w-1 { animation-delay: 0.08s; }
+.hero-word.w-2 { animation-delay: 0.16s; }
+.hero-word.w-3 { animation-delay: 0.24s; }
+.hero-word.w-4 { animation-delay: 0.32s; }
+
+@keyframes heroSlideUp {
+  0% { transform: translateY(110%); }
+  100% { transform: translateY(0%); }
+}
+
+.hero-subhead {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin-top: var(--space-24);
+}
+
+/* Search Box */
+.search-box-wrap {
+  display: flex;
+  gap: var(--space-8);
+  max-width: 520px;
+  margin-top: var(--space-24);
+}
+
+.search-input {
+  flex: 1;
+  padding: var(--space-16);
+  border: var(--border-thick);
+  background-color: #ffffff;
+  color: var(--color-navy);
+  font-weight: 600;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--color-red);
+}
+
+.search-button {
+  background-color: var(--color-navy);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  padding: 0 var(--space-24);
+  border: var(--border-thick);
+  letter-spacing: 0.05em;
+}
+
+.search-button:hover {
+  background-color: var(--color-red);
+}
+
+/* ==========================================================================
+   BIG-NUMBER COUNT-UP STAT ROW (EQUAL SIZES, ALIGNED)
+   ========================================================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-16);
+  margin: var(--space-48) 0;
+  border-top: var(--border-thick);
+  border-bottom: var(--border-thick);
+  padding: var(--space-24) 0;
+  background-color: var(--bg-surface);
+}
+
+.stat-item {
+  text-align: center;
+  padding: var(--space-16);
+  border-right: var(--border-thin);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  line-height: 1;
+  color: var(--color-navy);
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-top: var(--space-8);
+}
+
+/* ==========================================================================
+   POSTER PANELS FOR CLUBS (EXPANDABLE ACCORDION)
+   ========================================================================== */
+.club-poster {
+  border: var(--border-thick);
+  margin-bottom: var(--space-24);
+  background-color: #ffffff;
+  color: var(--color-navy);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.club-poster-header {
+  padding: var(--space-24);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  position: relative;
+}
+
+.poster-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-16);
+}
+
+.poster-club-badge {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  padding: 4px 10px;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.poster-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-8);
+}
+
+.poster-tagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  max-width: 600px;
+}
+
+.poster-cue-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-24);
+  padding-top: var(--space-16);
+  border-top: 1.5px solid rgba(11, 19, 32, 0.2);
+}
+
+.poster-cue-text {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+}
+
+/* CSS MAX-HEIGHT EXPAND TRANSITION */
+.club-poster-expand {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  background-color: var(--bg-paper);
+}
+
+.club-poster.expanded .club-poster-expand {
+  max-height: 1200px;
+  opacity: 1;
+  border-top: var(--border-thick);
+}
+
+.poster-expand-inner {
+  padding: var(--space-24);
+}
+
+/* PHOTO SLOT PLACEHOLDER */
+.photo-slot {
+  width: 100%;
+  height: 200px;
+  background-color: var(--bg-surface);
+  border: 2px dashed var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: var(--space-16) 0;
+  padding: var(--space-16);
+  text-align: center;
+}
+
+/* ==========================================================================
+   DAY-WISE TIMELINE ON EVENTS PAGE
+   ========================================================================== */
+.timeline-day-group {
+  margin-bottom: var(--space-48);
+}
+
+.timeline-day-header {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: #ffffff;
+  background-color: var(--color-navy);
+  padding: var(--space-8) var(--space-16);
+  display: inline-block;
+  margin-bottom: var(--space-16);
+  border: var(--border-thick);
+}
+
+.event-row {
+  background-color: #ffffff;
+  border: var(--border-thick);
+  padding: var(--space-24);
+  margin-bottom: var(--space-16);
+  border-left-width: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.event-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.event-row-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1.1;
+  color: var(--color-navy);
+}
+
+.event-row-meta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  gap: var(--space-16);
+}
+
+.btn-rsvp {
+  padding: var(--space-8) var(--space-16);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  border: var(--border-thin);
+  background-color: var(--bg-paper);
+  color: var(--color-navy);
+}
+
+.btn-rsvp.rsvpd {
+  background-color: var(--color-navy);
+  color: #ffffff;
+}
+
+/* Category Filter Bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin-bottom: var(--space-24);
+}
+
+.filter-chip {
+  padding: var(--space-8) var(--space-16);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: var(--color-navy);
+  background-color: var(--bg-surface);
+  border: var(--border-thin);
+}
+
+.filter-chip.active {
+  background-color: var(--color-navy);
+  color: #ffffff;
+}
+
+/* Announcements */
+.announcement-card {
+  background-color: #ffffff;
+  border: var(--border-thick);
+  border-left-width: 8px;
+  border-left-color: var(--color-navy);
+  padding: var(--space-24);
+  margin-bottom: var(--space-16);
+}
+
+.announcement-card.urgent {
+  border-left-color: var(--color-red);
+}
+
+.ann-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-navy);
+  margin-bottom: var(--space-8);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-navy);
+  color: #ffffff;
+  padding: var(--space-48) var(--space-16) var(--space-24);
+  margin-top: var(--space-48);
+  border-top: 4px solid var(--color-red);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-24);
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Respect Prefers-Reduced-Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  .marquee-track,
+  .hero-word,
+  .club-poster-expand,
+  .heading-settle,
+  .nav-item-link::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Responsive Rules */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-navy);
+    border-bottom: 3px solid var(--color-navy);
+    flex-direction: column;
+    padding: var(--space-16);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: var(--border-thin);
+    padding-bottom: var(--space-16);
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="100" fill="#DC2626"/>
+  <circle cx="100" cy="100" r="82" fill="#0B1320"/>
+  <!-- Formula Racecar Vector -->
+  <path d="M 40 100 L 70 85 L 120 85 L 140 95 L 170 95 L 175 105 L 140 105 L 130 115 L 60 115 Z" fill="#F5F2EB"/>
+  <circle cx="65" cy="115" r="16" fill="#F5F2EB" stroke="#0B1320" stroke-width="4"/>
+  <circle cx="145" cy="115" r="16" fill="#F5F2EB" stroke="#0B1320" stroke-width="4"/>
+</svg>

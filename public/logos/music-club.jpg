@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="100" fill="#E05A47"/>
+  <circle cx="100" cy="100" r="80" fill="#0B1320"/>
+  <circle cx="100" cy="100" r="70" fill="none" stroke="#263345" stroke-width="3"/>
+  <circle cx="100" cy="100" r="55" fill="none" stroke="#263345" stroke-width="3"/>
+  <!-- Musical Note Icon -->
+  <path d="M 85 125 C 85 135 72 142 62 135 C 52 128 58 115 68 115 C 75 115 85 118 85 110 V 65 L 135 50 V 95 C 135 105 122 112 112 105 C 102 98 108 85 118 85 C 125 85 135 88 135 80 V 50 L 85 65 Z" fill="#F5F2EB"/>
+</svg>
