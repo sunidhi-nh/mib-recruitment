@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <!-- KLE Tech Crest Frame -->
-  <rect width="200" height="200" fill="#0B1320" rx="16"/>
-  <path d="M 100 20 L 170 50 V 110 C 170 150 100 180 100 180 C 100 180 30 150 30 110 V 50 Z" fill="#F5F2EB" stroke="#C82323" stroke-width="6"/>
-  <!-- Star & Flame Emblem -->
-  <path d="M 100 45 L 112 78 L 145 78 L 118 98 L 128 130 L 100 110 L 72 130 L 82 98 L 55 78 L 88 78 Z" fill="#C82323"/>
-  <text x="100" y="105" font-family="'Bebas Neue', sans-serif, Arial" font-weight="bold" font-size="26" fill="#0B1320" text-anchor="middle" letter-spacing="1">KLE</text>
-  <text x="100" y="160" font-family="'Bebas Neue', sans-serif, Arial" font-weight="bold" font-size="22" fill="#F5F2EB" text-anchor="middle" letter-spacing="2">TECH</text>
-</svg>

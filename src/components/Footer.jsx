@@ -14,7 +14,7 @@ export default function Footer() {
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: 'var(--space-8)' }}>
             <img 
-              src="/logos/kle-tech.svg" 
+              src="/logos/kle-tech.png" 
               alt="KLE Tech college crest logo" 
               width={40} 
               height={40}

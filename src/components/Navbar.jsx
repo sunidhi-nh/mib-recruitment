@@ -27,7 +27,7 @@ export default function Navbar() {
         {/* KLE Tech Brand Identity with Official College Crest Logo */}
         <NavLink to="/" className="brand-link" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <img 
-            src="/logos/kle-tech.svg" 
+            src="/logos/kle-tech.png" 
             alt="KLE Tech college crest logo" 
             width={40} 
             height={40}

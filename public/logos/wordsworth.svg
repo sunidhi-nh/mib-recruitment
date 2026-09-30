@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <circle cx="100" cy="100" r="100" fill="#7C3AED"/>
-  <circle cx="100" cy="100" r="82" fill="#0B1320"/>
-  <!-- Open Book & Feather Quill Vector -->
-  <path d="M 40 85 C 65 75 90 80 100 90 C 110 80 135 75 160 85 V 150 C 135 140 110 145 100 155 C 90 145 65 140 40 150 Z" fill="#F5F2EB"/>
-  <path d="M 100 90 V 155" stroke="#0B1320" stroke-width="4"/>
-  <path d="M 125 45 C 135 60 115 80 105 100 L 100 90 C 110 75 120 55 125 45 Z" fill="#F5F2EB"/>
-</svg>
