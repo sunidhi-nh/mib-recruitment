@@ -271,7 +271,12 @@ export const mockClubs = [
 ];
 
 // Flatten events from all 7 clubs into a single timeline array
-export const mockEvents = mockClubs.flatMap(c => c.events);
+export const mockEvents = mockClubs.flatMap(c => c.events.map(e => ({
+  ...e,
+  logo: c.logo,
+  accentColor: c.accentColor,
+  club: c
+})));
 
 // Flatten announcements from all 7 clubs into a single array
 export const mockAnnouncements = [

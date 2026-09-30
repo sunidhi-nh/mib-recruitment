@@ -20,7 +20,7 @@ export default function EventRow({ event, club, accentColor = '#0B1320', onToggl
     }
   };
 
-  const targetClub = club || { name: event.category, accentColor };
+  const targetClub = club || event.club || { name: event.category, logo: event.logo, accentColor: accentColor || event.accentColor };
 
   return (
     <div 

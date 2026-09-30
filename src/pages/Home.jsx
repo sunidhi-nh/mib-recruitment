@@ -127,6 +127,7 @@ export default function Home({ clubs, events, announcements, onToggleJoin, onTog
                 <EventRow
                   key={evt.id}
                   event={evt}
+                  club={hostClub}
                   accentColor={accentColor}
                   onToggleRsvp={onToggleRsvp}
                 />

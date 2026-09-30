@@ -90,6 +90,7 @@ export default function Events({ events, clubs, onToggleRsvp }) {
                     <EventRow
                       key={evt.id}
                       event={evt}
+                      club={hostClub}
                       accentColor={accentColor}
                       onToggleRsvp={onToggleRsvp}
                     />

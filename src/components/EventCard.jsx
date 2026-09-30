@@ -23,7 +23,7 @@ export default function EventCard({ event, club, accentColor = '#0B1320', onOpen
     }
   };
 
-  const targetClub = club || { name: event.category || event.clubName, accentColor };
+  const targetClub = club || event.club || { name: event.category || event.clubName, logo: event.logo, accentColor: accentColor || event.accentColor };
 
   return (
     <div className="event-card" style={{ borderLeft: `6px solid ${accentColor}` }}>
